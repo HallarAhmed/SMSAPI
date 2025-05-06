@@ -26,12 +26,12 @@ app.get('/students',async(req,res)=>{
 
 app.get('/gettotalstd',async(req,res)=>{
 	try{
-	 const result = await pool.query('select count(ID) from students');
+	 const result = await pool.query('select count(ID) from student');
 	 res.json(result.rows);
 	}catch(err){
 	 res.status(500).json({Error:err.message});
 	}
-})
+});
 
 const PORT = process.env.PORT;
 app.listen(PORT,()=>{
